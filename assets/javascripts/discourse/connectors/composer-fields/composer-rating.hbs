@@ -1,0 +1,7 @@
+{{#if showRating}}
+  {{input type="checkbox" checked=includeRating}}
+  {{i18n 'composer.your_rating'}}
+  {{#if includeRating}}
+    {{d-rating-enabled enabled=includeRating rating=rating}}    
+  {{/if}}
+{{/if}}
