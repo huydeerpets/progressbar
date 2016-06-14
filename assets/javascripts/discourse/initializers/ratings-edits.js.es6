@@ -1,6 +1,8 @@
 import Topic from 'discourse/models/topic';
 import TopicController from 'discourse/controllers/topic';
 import TopicRoute from 'discourse/routes/topic';
+import TopicListItem from 'discourse/components/topic-list-item';
+import { default as computed, on, observes } from 'ember-addons/ember-computed-decorators';
 import ComposerController from 'discourse/controllers/composer';
 import ComposerView from 'discourse/views/composer';
 import Composer from 'discourse/models/composer';
@@ -20,12 +22,15 @@ export default {
         var rating = helper.attrs.rating,
             showRating = helper.getModel().topic.show_ratings;
         if (showRating && rating) {
-          var html = new Handlebars.SafeString(renderUnboundRating(rating))
+		
+          var html = new Handlebars.SafeString(renderUnboundRating(helper.getModel().topic))
           return helper.rawHtml(`${html}`)
         }
       })
     });
-
+// $( document ).ready(function() {
+   // $("#jRate49").jRate();
+// });
     TopicController.reopen({
       refreshAfterTopicEdit: false,
 
@@ -39,7 +44,7 @@ export default {
           })
         }
       }.observes('model.postStream.loaded'),
-
+	
       showRating: function() {
         if (this.get('model.average_rating') < 1) {return false}
         if (!this.get('editingTopic')) {return this.get('model.show_ratings')}
@@ -74,8 +79,80 @@ export default {
         }
       }
     })
+	
+    TopicListItem.reopen({
+   
+       @on('didInsertElement')
+       _setupDOM() {
+       
+            // this._rearrangeDOM()
+        var topic = this.get('topic')
+		this.$('#jRate'+topic.id).jRate({
+				rating:topic.average_rating,
+				//onChange: function(rating){
+				//	$('#jRate'+topic.id).text(rating);
+				//}, 
+				min:0,
+				max:10,
+				width: 23,
+				height: 23,
+				precision: 1,
+				count: 10,
+				minSelected:1,
+				readOnly:true
+				
+			})
+        //this.$('.main-link').children().not('.topic-thumbnail').wrapAll("<div class='topic-details' />")
+        //this.$('.topic-details').children('.topic-statuses, .title, .topic-post-badges').wrapAll("<div class='topic-title'/>")
+        //this.$('.topic-thumbnail').prependTo(this.$('.main-link')[0])
+		
+		
+       }
 
+	  
+	  // /*
+	  
+	  // <script type="text/javascript">$(document).ready(function() {$("#jRate' + topic.id + '").jRate({rating: '+ topic.average_rating + ',width: 80,height: 80,precision: 0.1,minSelected:1});});</script>
+	  // */
+      // _rearrangeDOM() {
+	  // var topic = this.get('topic'),
+		// this.$('#jRate' + topic.id + ').jRate({rating: '+ topic.average_rating + ',width: 80,height: 80,precision: 0.1,minSelected:1}')
+        // this.$('.main-link').children().not('.topic-thumbnail').wrapAll("<div class='topic-details' />")
+        // this.$('.topic-details').children('.topic-statuses, .title, .topic-post-badges').wrapAll("<div class='topic-title'/>")
+        // this.$('.topic-thumbnail').prependTo(this.$('.main-link')[0])
+
+       
+      // }
+
+     
+    })
     Post.reopen({
+	@on('didInsertElement')
+       _setupDOM() {
+       
+            // this._rearrangeDOM()
+        var id = this.get('id')
+		this.$('#jRate'+id).jRate({
+				rating:12,
+				//onChange: function(rating){
+				//	$('#jRate'+topic.id).text(rating);
+				//}, 
+				min:0,
+				max:10,
+				width: 23,
+				height: 23,
+				precision: 1,
+				count: 10,
+				minSelected:1,
+				readOnly:true
+				
+			})
+        //this.$('.main-link').children().not('.topic-thumbnail').wrapAll("<div class='topic-details' />")
+        //this.$('.topic-details').children('.topic-statuses, .title, .topic-post-badges').wrapAll("<div class='topic-title'/>")
+        //this.$('.topic-thumbnail').prependTo(this.$('.main-link')[0])
+		
+		
+       },
       setRatingWeight: function() {
         if (!this.get('topic.show_ratings')) {return}
         var id = this.get('id'),
@@ -90,7 +167,9 @@ export default {
           popupAjaxError(error);
         });
       }.observes('deleted')
-    })
+    
+	
+	})
 
     ComposerController.reopen({
       rating: null,
@@ -213,9 +292,22 @@ export default {
         }
       }.observes('controller.showRating')
     })
-
-    registerUnbound('rating-unbound', function(rating) {
-      return new Handlebars.SafeString(renderUnboundRating(rating));
+	function renderUnboundRating2(topic) {
+		//$('.spoiler', $elem).removeClass('spoiler').addClass('spoiled').spoil();
+		//var stars = ''
+		//for (var i = 0; i < 5; i++) {
+		//	var value = i + 1,
+			//checked = value <= topic.average_rating ? 'checked' : '',
+			//disabled = disabled ? 'disabled' : '',
+			//star = '<input type="radio" value="' + value + '" ' + checked + ' disabled><i></i>';
+			//stars = stars.concat(star)
+		//}
+  //return '<span id="'+ topic.id + '" class="rating">' + stars + '</span>';
+		return '<script type="text/javascript">$(document).ready(function() {$("#jRate' + topic.id + '").jRate({rating: '+ topic.average_rating + ',width: 80,height: 80,precision: 0.1,minSelected:1});});</script><div id="' + 'jRate' + topic.id + '" style="height:50px;width: 200px;"></div>';
+	}
+    registerUnbound('rating-unbound', function(topic) {
+	
+      return new Handlebars.SafeString(renderUnboundRating(topic));
     });
 
   }

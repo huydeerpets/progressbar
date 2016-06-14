@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   willInsertElement: function() {
     //this.$().prop('type', 'radio')
-	//this.$().prop('class', this.get("rating"))
+	this.$().prop('id', '99')
   },
 	didInsertElement: function() {
             Ember.$('#jRate').jRate({

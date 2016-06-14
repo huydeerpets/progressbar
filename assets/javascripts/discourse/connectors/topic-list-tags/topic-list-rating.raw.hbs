@@ -1,8 +1,8 @@
 {{#if context.topic.show_average}}
-  <div class="lens-rating">
-    {{rating-unbound context.topic.average_rating}}
-    
-      
-    
+  <div class="topic-rating">
+    {{d-rating context.topic}}
+    {{#if context.siteSettings.show_exact_average_rating}}
+      <span class="exact-rating1">({{context.topic.average_rating}})</span>
+    {{/if}}
   </div>
 {{/if}}
