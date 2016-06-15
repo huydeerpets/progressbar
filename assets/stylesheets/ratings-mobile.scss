@@ -8,18 +8,18 @@ progress{
           appearance: none;
 
   /* Get rid of default border in Firefox. */
-  height: 20px;
-    width: 200px;
+  height: 15px;
+    width: 100px;
  
 }
 .review-rating{
-height:20px;
+height:15px;
 display:inline!important;
 }
 span.exact-rating {
     color: #777;
     display: inline-block;
-    height: 20px;
+    height: 15px;
     position: absolute;
     vertical-align: baseline;
 }
@@ -163,7 +163,7 @@ display:inline!important;
 
 .topic-list .exact-rating {
   font-size: 14px;
-  height: 20px;
+  height: 15px;
 }
 
 .topic-post .rating {
@@ -175,13 +175,13 @@ span.rating {
   background-size: contain;
     display: inline-block;
     font-size: 0;
-    height: 20px;
+    height: 15px;
     line-height: 20px;
     overflow: hidden;
     padding: 0;
     position: relative;
     vertical-align: baseline;
     white-space: nowrap;
-    width: 200px;
+    width: 100px;
   
 }

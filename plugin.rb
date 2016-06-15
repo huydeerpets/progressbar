@@ -2,11 +2,9 @@
 # about: A Discourse plugin that lets you use topics to rate things
 # version: 0.2
 # authors: Angus McLeod
-#register_asset "javascripts/jquery.min.js"
 
-register_asset "javascripts/jRate.js"
-#register_asset 'stylesheets/ratings-desktop.scss', :desktop
-
+register_asset 'stylesheets/ratings-desktop.scss', :desktop
+register_asset 'stylesheets/ratings-desktop.scss', :mobile
 after_initialize do
 
   Category.register_custom_field_type('rating_enabled', :boolean)
@@ -99,6 +97,13 @@ after_initialize do
 
   TopicList.preloaded_custom_fields << "average_rating" if TopicList.respond_to? :preloaded_custom_fields
 
+  #require 'post_serializer'
+  #class ::PostSerializer
+#	attributes :
+#  end
+  
+  
+  
   require 'topic_view_serializer'
   class ::TopicViewSerializer
     attributes :average_rating, :show_ratings, :can_rate
