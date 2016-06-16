@@ -1,9 +1,9 @@
 var renderUnboundRating = function(rating) {
   var stars = ''
-  
+  var roundvalue = Math.round(rating)*10
     var value = rating*10,
   
-		star = '<div><progress class="reviews-'+value +'" id="reviewsbar" value="'+value +'" max="100"></progress><span class="exact-rating">('+rating+')</span></div>';
+		star = '<div><progress class="reviews-'+roundvalue +'" id="reviewsbar" value="'+value +'" max="100"></progress><span class="exact-rating">('+rating+')</span></div>';
 		stars = stars.concat('<span itemscope itemtype="http://schema.org/Review">');
  		stars = stars.concat('<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">');
         //star = stars.concat('<span itemprop="name">Super Book</span>');

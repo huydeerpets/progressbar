@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   
   didInsertElement: function() {
-     Ember.$('.review-rating' ).append( '<progress class="reviews-' + this.get("rating")*10+ '" id="reviewsbar" value="'+ this.get("rating")*10+'" max="100"></progress>' );
+     Ember.$('.review-rating' ).append( '<progress class="reviews-' + Math.round(this.get("rating"))*10+ '" id="reviewsbar" value="'+ this.get("rating")*10+'" max="100"></progress>' );
   },
 
 });
