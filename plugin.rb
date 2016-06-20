@@ -4,7 +4,8 @@
 # authors: Angus McLeod
 
 register_asset 'stylesheets/ratings-desktop.scss', :desktop
-register_asset 'stylesheets/ratings-desktop.scss', :mobile
+register_asset 'stylesheets/ratings-mobile.scss', :mobile
+register_asset 'stylesheets/ratings-tablet.scss', :tablet
 after_initialize do
 
   Category.register_custom_field_type('rating_enabled', :boolean)
