@@ -3,65 +3,66 @@ display:inline;
 }
 .names span{
 display:inline;
+padding-right:0;
 }
 #topic-title .title-wrapper
 {
 margin-bottom:10px;
 }
-.lens-rating { 
+.camera-lens-rating, .lens-rating { 
 			height: 19px;  /* Can be anything */
 			position: relative;
 			background: #555;
-			max-width: 200px;
+			width: 200px;
 		}
-.lens-rating > span {
+.camera-lens-rating > span,.lens-rating > span {
 			display: block;
 			height: 100%;
 			
 			
 			
 		}
-.lens-rating > span:after {
+.camera-lens-rating > span:after ,.lens-rating > span:after {
 			content: "";
 			position: absolute;
 			top: 0; left: 0; bottom: 0; right: 0;
 			z-index: 1;
 			overflow: hidden;
 		}
-.lens-rating .rating-10{
+.camera-lens-rating .rating-10,.lens-rating .rating-10{
 background-color: #ff5500; 
 }
-.lens-rating .rating-20{
+.camera-lens-rating .rating-20,.lens-rating .rating-20{
 background-color: #e8c813; 
 }
-.lens-rating .rating-30{
+.camera-lens-rating .rating-30,.lens-rating .rating-30{
 background-color: #e8e113; 
 }
-.lens-rating .rating-40{
+.camera-lens-rating .rating-40,.lens-rating .rating-40{
 background-color: #e4e813; 
 }
 
-.lens-rating .rating-50{
+.camera-lens-rating .rating-50,.lens-rating .rating-50{
 background-color: #e4e813; 
 }
 
-.lens-rating .rating-60{
+.camera-lens-rating .rating-60,.lens-rating .rating-60{
 background-color: #e4e813; 
 }
 
-.lens-rating .rating-70{
+.camera-lens-rating .rating-70,.lens-rating .rating-70{
 background-color: #B3e813;
 }
 
-.lens-rating .rating-80{
+.camera-lens-rating .rating-80,.lens-rating .rating-80{
 background-color: #93e813;
 }
 
-.lens-rating .rating-90{
+.camera-lens-rating .rating-90,.lens-rating .rating-90{
 background-color: #73ff00;
 }
 
-.lens-rating .rating-100{
+.camera-lens-rating .rating-100,.lens-rating .rating-100{
 background-color: #0aff00;
 }
 

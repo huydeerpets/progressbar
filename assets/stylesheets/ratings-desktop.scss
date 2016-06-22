@@ -3,6 +3,7 @@ display:inline;
 }
 .names span{
 display:inline;
+padding-right:0;
 }
 #topic-title .title-wrapper
 {
@@ -12,7 +13,7 @@ margin-bottom:10px;
 			height: 19px;  /* Can be anything */
 			position: relative;
 			background: #555;
-			max-width: 200px;
+			width: 200px;
 		}
 .camera-lens-rating > span,.lens-rating > span {
 			display: block;
