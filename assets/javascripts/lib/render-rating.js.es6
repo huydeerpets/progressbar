@@ -3,7 +3,7 @@ var renderUnboundRating = function(rating) {
   var roundvalue = Math.round(rating)*10
     var value = rating*10,
   
-		star = '<div class="lens-rating"><span class="rating-'+roundvalue +'" id="reviewsbar" style="box-shadow:2px 2px 5px 1px #111; width:'+value +'%" max="100"><span class="exact-rating">('+rating+')</span></span></div>';
+		star = '<div class="lens-rating"><span class="rating-'+roundvalue +'" id="reviewsbar" style="box-shadow:2px 2px 5px 1px #111 inset; width:'+value +'%" max="100"><span class="exact-rating">('+rating+')</span></span></div>';
 		stars = stars.concat('<span itemscope itemtype="http://schema.org/Review">');
  		stars = stars.concat('<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">');
         //star = stars.concat('<span itemprop="name">Super Book</span>');

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   
   didInsertElement: function() {
-     Ember.$('.camera-lens-rating' ).append( '<span class="rating-' + Math.round(this.get("rating"))*10+ '" id="reviewsbar" style="box-shadow:2px 2px 5px 1px #111;width:'+ this.get("rating")*10+'%" max="100"><span class="exact-rating">('+this.get("rating")+')</span></span>' );
+     Ember.$('.camera-lens-rating' ).append( '<span class="rating-' + Math.round(this.get("rating"))*10+ '" id="reviewsbar" style="box-shadow:2px 2px 5px 1px #111 inset;width:'+ this.get("rating")*10+'%" max="100"><span class="exact-rating">('+this.get("rating")+')</span></span>' );
   },
 
 });
