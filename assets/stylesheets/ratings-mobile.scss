@@ -1,5 +1,10 @@
+.username.new-user a {
+margin-right:5px;
+}
 .total-review-rating span{
 display:inline;
+font-size: 12px;
+vertical-align: baseline;
 }
 .names span{
 display:inline;
@@ -95,10 +100,10 @@ font-size:0.6em;
 }
 
 .exact-rating {
-  vertical-align: middle;
+  color: #fff;
   display: inline-block;
-  height: 17px;
-  color: #777;
+  font-size: 12px;
+  height: 19px;
 }
 
 .topic-list .exact-rating {
