@@ -1,3 +1,6 @@
+.lenses-rating{
+font-size:0.98em;
+}
 .username.new-user a {
 margin-right:5px;
 }
@@ -16,10 +19,11 @@ margin-bottom:10px;
 }
 .camera-lens-rating, .lens-rating { 
 			height: 19px;  /* Can be anything */
+			line-height: 19px;
 			position: relative;
 			background: #555;
 			width: 200px;
-			box-shadow:1px 1px 1px 1px #222 inset;
+			
 		}
 .camera-lens-rating > span,.lens-rating > span {
 			display: block;
@@ -109,7 +113,7 @@ font-size:0.6em;
 }
 
 .topic-list .exact-rating {
-  font-size: 14px;
+  font-size: 12px;
   height: 19px;
 }
 
