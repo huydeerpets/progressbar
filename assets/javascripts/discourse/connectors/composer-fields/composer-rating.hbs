@@ -2,6 +2,11 @@
   {{input type="checkbox" checked=includeRating}}
   {{i18n 'composer.your_rating'}}
   {{#if includeRating}}
-    {{d-rating-enabled enabled=includeRating rating=rating}}    
+    
+	<div>{{d-rating-enabled1 enabled=includeRating rating1=rating1}}   </div> 
+	<div>{{d-rating-enabled2 enabled=includeRating rating2=rating2}}   </div>
+	<div>{{d-rating-enabled3 enabled=includeRating rating3=rating3}}   </div>
+	<div>{{d-rating-enabled4 enabled=includeRating rating4=rating4}}   </div>
+	<div>{{d-rating-enabled5 enabled=includeRating rating5=rating5}}   </div>
   {{/if}}
 {{/if}}
